@@ -2,12 +2,14 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://myTester:xyz123@10.6.129.152:27017/test',  { useNewUrlParser: true });
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("hola")
+mongoose.connect('mongodb://10.6.128.158:27017/test', {useNewUrlParser: true}, function(error){
+	if (error) {
+		throw error;
+	}
+	else {
+		console.log('Conectado a MongoDB');
+	}
 });
 
 var Schema = mongoose.Schema;
