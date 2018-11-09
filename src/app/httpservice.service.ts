@@ -8,7 +8,6 @@ export class HttpserviceService {
   constructor(private http: HttpClient) { }
   
   set_usuario(usuario){
-    alert(usuario);
-    /*this.http.get('/registro/' + usuario);*/
+    this.http.get('localhost:8081/registro/' + usuario);
   }
 }

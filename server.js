@@ -16,8 +16,8 @@ var Schema = mongoose.Schema;
 
 var userDataSchema = new Schema({
 	nombre: String,
-   usuario: String,
-   contrasena: String
+   	usuario: String,
+   	contrasena: String
 });
 
 var UserData = mongoose.model('UserData', userDataSchema);
@@ -31,7 +31,7 @@ app.use(express.static(__dirname + '/dist/project'));
 app.get('/*', (req,res) => res.sendFile(path.join(__dirname)));
 
 app.get('/registro',function(req, res) {
-	console.log('hola')
+	console.log('hola');
 	/*var usuario = new UserData({nombre: 'cristian', usuario: 'ramos', contrasena: 'hola'});
 	usuario.save(function (err) {
 	if (err) return handleError(err);
