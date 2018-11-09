@@ -2,8 +2,9 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser')
 
-mongoose.connect('mongodb://10.6.128.158:27017/test', {useNewUrlParser: true}, function(error){
+mongoose.connect('mongodb://localhost:27017/usuarios', {useNewUrlParser: true}, function(error){
 	if (error) {
 		throw error;
 	}
@@ -27,11 +28,12 @@ const app = express();
 const port = 8081;
 
 app.use(express.static(__dirname + '/dist/project'));
+app.use(bodyParser());
 
 app.get('/*', (req,res) => res.sendFile(path.join(__dirname)));
 
-app.get('/registro',function(req, res) {
-	console.log('hola');
+app.post('/registro',function(req, res) {
+	console.log(req.body);
 	/*var usuario = new UserData({nombre: 'cristian', usuario: 'ramos', contrasena: 'hola'});
 	usuario.save(function (err) {
 	if (err) return handleError(err);

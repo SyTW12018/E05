@@ -8,6 +8,6 @@ export class HttpserviceService {
   constructor(private http: HttpClient) { }
   
   set_usuario(usuario){
-    this.http.get('localhost:8081/registro/' + usuario);
+    this.http.post('http://localhost:8081/registro', {usuario: usuario }).subscribe();
   }
 }
