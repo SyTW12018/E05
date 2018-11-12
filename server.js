@@ -41,9 +41,8 @@ app.post('/registro',function(req, res) {
 });
 
 app.get('/users',function(req, res){
-	UserData.find({}).exec(function (err, result) {
+	UserData.find({}).select({ "nombre": 1,"usuario": 1, "contrasena": 1, "_id": 0}).exec(function (err, result) {
 		var usuarios = result;
-		console.log(usuarios);
 		res.json(usuarios);
 	});
 })
