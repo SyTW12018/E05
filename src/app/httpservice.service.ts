@@ -1,13 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { dashCaseToCamelCase } from '@angular/compiler/src/util';
+import { User } from './user';
+import {Observable} from 'rxjs/Rx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpserviceService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   
-  set_usuario(usuario){
-    this.http.post('http://localhost:8081/registro', {usuario: usuario }).subscribe();
+  public users; 
+  set_usuario(nombre, usuario, contrasena){
+    this.http.post('http://localhost:8081/registro', {nombre: nombre, usuario: usuario, contrasena: contrasena }).subscribe();
   }
+
+  get_usuarios (): Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:8081/users')
+  }
+
+  /*get_usuarios(){
+    this.http.get('http://localhost:8081/users').subscribe(data => { console.log(data) });
+    return this.users
+  }*/
 }

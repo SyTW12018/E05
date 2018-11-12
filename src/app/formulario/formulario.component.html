@@ -2,8 +2,8 @@
     <label for="Nombre">Nombre: </label>
     <input type="text" placeholder="Nombre" name="nombre1" id="nombre1" #nombre1 ><br><br>
     <label for="Nombre">Usuario: </label>
-    <input type="text" placeholder="Usuario" name="usuario" id="usuario"><br><br>
+    <input type="text" placeholder="Usuario" name="usuario" id="usuario" #usuario1><br><br>
     <label for="Nombre">Contrase&ntildea: </label>
-    <input type="password" name="contrasena1" id="contrasena1" placeholder="Contrase&ntilde;a"><br><br>
-    <button type=submit (click)="enviar(nombre1)" name=registrarse>Regitrarse</button>
+    <input type="password" name="contrasena1" id="contrasena1" placeholder="Contrase&ntilde;a" #contrasena1><br><br>
+    <button type=submit (click)="enviar(nombre1, usuario1, contrasena1)" name=registrarse>Regitrarse</button>
 </form>

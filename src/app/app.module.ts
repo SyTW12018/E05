@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpserviceService } from './httpservice.service';
+import { ButtonComponent } from './button/button.component';
+import { map } from 'rxjs/operators';
+import { User } from './user';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormularioComponent
+    FormularioComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

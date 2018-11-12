@@ -13,8 +13,8 @@ export class FormularioComponent implements OnInit {
   ngOnInit() {
   }
   
-  enviar(nombre){
-    this.httpService.set_usuario(nombre.value);
+  enviar(nombre, usuario, contrasena){
+    this.httpService.set_usuario(nombre.value, usuario.value, contrasena.value);
     return false;
   }
 
