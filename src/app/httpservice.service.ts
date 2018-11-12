@@ -16,6 +16,13 @@ export class HttpserviceService {
   }
 
   get_usuarios(callback) {
-    this.http.get<User[]>('http://localhost:8081/users').subscribe(data => callback(new User().deserialize(data)));
+    this.http.get<User[]>('http://localhost:8081/users').subscribe(data => {
+      var usuarios = []
+      for(var i = 0; i < data.length; i++) {
+        var obj = data[i];
+        usuarios[i] = new User().deserialize(obj)
+      }
+      callback(usuarios)
+    });
   }
 }

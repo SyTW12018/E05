@@ -15,13 +15,11 @@ export class ButtonComponent implements OnInit {
   ngOnInit() {
   }
 
-  objetos_usuario = null;
-  string_usuarios = null;
+  usuarios = null;
 
   getUsers(){
     this.httpService.get_usuarios(function(users){
-      this.objetos_usuario = users;
-      this.string_usuarios = JSON.stringify(users);
+      this.usuarios = users;
     }.bind(this));
     return false;
   }
