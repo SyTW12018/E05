@@ -11,12 +11,11 @@ import {Observable} from 'rxjs/Rx';
 export class HttpserviceService {
   constructor(private http: HttpClient) {}
   
-  public users = "hola"; 
   set_usuario(nombre, usuario, contrasena){
     this.http.post('http://localhost:8081/registro', {nombre: nombre, usuario: usuario, contrasena: contrasena }).subscribe();
   }
 
-  get_usuarios(callback){
-    this.http.get<User[]>('http://localhost:8081/users').subscribe(data => callback(data));
+  get_usuarios(callback) {
+    this.http.get<User[]>('http://localhost:8081/users').subscribe(data => callback(new User().deserialize(data)));
   }
 }
