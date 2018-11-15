@@ -18,8 +18,23 @@
       <title>Diario de clase</title>
 </head>
 <body>
-      <app-formulario></app-formulario>
-      <br>
-      <app-button></app-button>
+      <app-nav label="hola"></app-nav>
+      <div id="inicio">
+        <div class="container">
+          <app-presentacion></app-presentacion>
+          <div class="row">
+          <app-formulario></app-formulario>
+          <app-form-inicio-sesion></app-form-inicio-sesion>
+          </div>
+          <br>
+          <app-button></app-button>
+        </div>
+      </div>
+      <app-footer></app-footer>
+      
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
 </body>
 </html>
