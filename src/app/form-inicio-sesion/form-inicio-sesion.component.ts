@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpserviceService } from '../httpservice.service';
+
 
 @Component({
   selector: 'app-form-inicio-sesion',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormInicioSesionComponent implements OnInit {
 
-  constructor() { }
+constructor(private httpService: HttpserviceService ) { }
 
   ngOnInit() {
   }
+  
+  inicio_sesion(usuario, contrasena){
+      this.httpService.login(usuario.value, contrasena.value);
+      return false;
+  }
+
 
 }

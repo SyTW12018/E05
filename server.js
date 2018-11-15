@@ -47,6 +47,14 @@ app.get('/users',function(req, res){
 	});
 })
 
+app.get('/inicio_sesion',function(req, res){
+	UserData.find({"usuario":req.body.usuario,"contrasena":req.body.contrasena }).select({ "nombre": 1,"usuario": 1, "contrasena": 1, "_id": 0}).exec(function (err, usuario) {
+		res.json(usuario);
+	});
+})
+
+
+
 const server = http.createServer(app);
 
 server.listen(port,() => console.log('Running...'+port));
