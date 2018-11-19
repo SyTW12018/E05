@@ -13,10 +13,6 @@ import { NavComponent } from './nav/nav.component';
 import { PresentacionComponent } from './presentacion/presentacion.component';
 import { FormInicioSesionComponent } from './form-inicio-sesion/form-inicio-sesion.component';
 import { FooterComponent } from './footer/footer.component';
-<<<<<<< HEAD
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MzButtonModule, MzInputModule } from 'ngx-materialize';
-=======
 import { PaginainicioComponent } from './paginainicio/paginainicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import {Routes, RouterModule} from '@angular/router'
@@ -26,7 +22,9 @@ const appRoutes: Routes = [
   {path: 'inicio', component: PaginainicioComponent},
   {path: 'perfil', component: PerfilComponent}
 ];
->>>>>>> e7da52fae67a5fd4d0da6763c8374c531bec09f9
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MzButtonModule, MzInputModule } from 'ngx-materialize';
+import { NavPerfilComponent } from './nav-perfil/nav-perfil.component';
 
 @NgModule({
   declarations: [
@@ -38,19 +36,17 @@ const appRoutes: Routes = [
     FormInicioSesionComponent,
     FooterComponent,
     PaginainicioComponent,
-    PerfilComponent
+    PerfilComponent,
+    NavPerfilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-<<<<<<< HEAD
     NoopAnimationsModule,
     MzButtonModule,
-    MzInputModule
-=======
+    MzInputModule,
     RouterModule.forRoot(appRoutes)
->>>>>>> e7da52fae67a5fd4d0da6763c8374c531bec09f9
   ],
   providers: [HttpserviceService],
   bootstrap: [AppComponent]
