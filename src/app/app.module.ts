@@ -13,10 +13,8 @@ import { NavComponent } from './nav/nav.component';
 import { PresentacionComponent } from './presentacion/presentacion.component';
 import { FormInicioSesionComponent } from './form-inicio-sesion/form-inicio-sesion.component';
 import { FooterComponent } from './footer/footer.component';
-
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MzButtonModule, MzInputModule } from 'ngx-materialize';
-
 import { PaginainicioComponent } from './paginainicio/paginainicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import {Routes, RouterModule} from '@angular/router'
@@ -27,6 +25,9 @@ const appRoutes: Routes = [
   {path: 'perfil', component: PerfilComponent}
 ];
 
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MzButtonModule, MzInputModule } from 'ngx-materialize';
+import { NavPerfilComponent } from './nav-perfil/nav-perfil.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     FormInicioSesionComponent,
     FooterComponent,
     PaginainicioComponent,
-    PerfilComponent
+    PerfilComponent,
+    NavPerfilComponent
   ],
   imports: [
     BrowserModule,
