@@ -20,14 +20,16 @@ export class HttpserviceService {
       var usuarios = []
       for(var i = 0; i < data.length; i++) {
         var obj = data[i];
-        usuarios[i] = new User().deserialize(obj)
+        usuarios[i] = new User().deserialize(obj);
       }
       callback(usuarios)
     });
   }
   
-  login(usuario,contrasena){
-    this.http.post('http://localhost:8081/inicio_sesion', {usuario: usuario, contrasena: contrasena }).subscribe();
+  login(usuario,contrasena, callback){
+    this.http.post('http://localhost:8081/inicio_sesion', {usuario: usuario, contrasena: contrasena }).subscribe(data => {
+      callback(data[0]);
+    });
 
   }
   
