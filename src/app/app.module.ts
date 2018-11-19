@@ -13,6 +13,15 @@ import { NavComponent } from './nav/nav.component';
 import { PresentacionComponent } from './presentacion/presentacion.component';
 import { FormInicioSesionComponent } from './form-inicio-sesion/form-inicio-sesion.component';
 import { FooterComponent } from './footer/footer.component';
+import { PaginainicioComponent } from './paginainicio/paginainicio.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import {Routes, RouterModule} from '@angular/router'
+
+const appRoutes: Routes = [
+  {path: '', redirectTo:'/inicio', pathMatch: 'full'},
+  {path: 'inicio', component: PaginainicioComponent},
+  {path: 'perfil', component: PerfilComponent}
+];
 
 @NgModule({
   declarations: [
@@ -22,12 +31,15 @@ import { FooterComponent } from './footer/footer.component';
     NavComponent,
     PresentacionComponent,
     FormInicioSesionComponent,
-    FooterComponent
+    FooterComponent,
+    PaginainicioComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [HttpserviceService],
   bootstrap: [AppComponent]

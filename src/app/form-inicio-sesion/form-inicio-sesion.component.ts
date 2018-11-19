@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpserviceService } from '../httpservice.service';
-
+import { DataserviceService } from '../dataservice.service';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-form-inicio-sesion',
@@ -9,13 +10,16 @@ import { HttpserviceService } from '../httpservice.service';
 })
 export class FormInicioSesionComponent implements OnInit {
 
-constructor(private httpService: HttpserviceService ) { }
+constructor(private httpService: HttpserviceService, private router: Router, private dataService: DataserviceService ) { }
 
   ngOnInit() {
   }
   
   inicio_sesion(usuario, contrasena){
-      this.httpService.login(usuario.value, contrasena.value);
+      this.httpService.login(usuario.value, contrasena.value, function(usuario){
+        this.dataService.login(usuario);
+        this.router.navigate(['perfil']);
+      }.bind(this));
       return false;
   }
 

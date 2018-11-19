@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -19,22 +18,12 @@
 </head>
 <body>
       <app-nav label="hola"></app-nav>
-      <div id="inicio">
-        <div class="container">
-          <app-presentacion></app-presentacion>
-          <div class="row">
-          <app-formulario></app-formulario>
-          <app-form-inicio-sesion></app-form-inicio-sesion>
-          </div>
-          <br>
-          <app-button></app-button>
-        </div>
-      </div>
+      <router-outlet></router-outlet>
       <app-footer></app-footer>
       
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-
+      <script type="text/javascript" src='..\js\menu.js'></script>
 </body>
 </html>
