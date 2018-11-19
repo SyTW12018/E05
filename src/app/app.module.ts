@@ -13,6 +13,8 @@ import { NavComponent } from './nav/nav.component';
 import { PresentacionComponent } from './presentacion/presentacion.component';
 import { FormInicioSesionComponent } from './form-inicio-sesion/form-inicio-sesion.component';
 import { FooterComponent } from './footer/footer.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MzButtonModule, MzInputModule } from 'ngx-materialize';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,10 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule,
+    MzButtonModule,
+    MzInputModule
   ],
   providers: [HttpserviceService],
   bootstrap: [AppComponent]

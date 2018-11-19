@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,5 +12,8 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
   }
+ 
+ 
+
 
 }
