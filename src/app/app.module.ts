@@ -25,8 +25,6 @@ const appRoutes: Routes = [
   {path: 'perfil', component: PerfilComponent}
 ];
 
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MzButtonModule, MzInputModule } from 'ngx-materialize';
 import { NavPerfilComponent } from './nav-perfil/nav-perfil.component';
 
 @NgModule({
