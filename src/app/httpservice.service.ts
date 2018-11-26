@@ -9,8 +9,8 @@ import {Observable} from 'rxjs/Rx';
   providedIn: 'root'
 })
 export class HttpserviceService {
-  constructor(private http: HttpClient) {}
-  
+  constructor(private http: HttpClientModule) {}
+
   set_usuario(nombre, usuario, contrasena){
     this.http.post('http://localhost:8081/registro', {nombre: nombre, usuario: usuario, contrasena: contrasena }).subscribe();
   }
@@ -25,13 +25,13 @@ export class HttpserviceService {
       callback(usuarios)
     });
   }
-  
+
   login(usuario,contrasena, callback){
     this.http.post('http://localhost:8081/inicio_sesion', {usuario: usuario, contrasena: contrasena }).subscribe(data => {
       callback(data[0]);
     });
 
   }
-  
-  
+
+
 }

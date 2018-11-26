@@ -21,5 +21,5 @@ describe('ButtonComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
+});
 });
