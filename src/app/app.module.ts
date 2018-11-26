@@ -1,14 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormularioComponent } from './formulario/formulario.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpserviceService } from './httpservice.service';
-import { ButtonComponent } from './button/button.component';
-import { map } from 'rxjs/operators';
-import { User } from './user';
 import { NavComponent } from './nav/nav.component';
 import { PresentacionComponent } from './presentacion/presentacion.component';
 import { FormInicioSesionComponent } from './form-inicio-sesion/form-inicio-sesion.component';
@@ -31,7 +28,6 @@ import { NavPerfilComponent } from './nav-perfil/nav-perfil.component';
   declarations: [
     AppComponent,
     FormularioComponent,
-    ButtonComponent,
     NavComponent,
     PresentacionComponent,
     FormInicioSesionComponent,
@@ -43,13 +39,14 @@ import { NavPerfilComponent } from './nav-perfil/nav-perfil.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClient,
+    HttpClientModule,
     NoopAnimationsModule,
     MzButtonModule,
     MzInputModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [HttpserviceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

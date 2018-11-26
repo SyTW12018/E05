@@ -9,7 +9,7 @@ import {Observable} from 'rxjs/Rx';
   providedIn: 'root'
 })
 export class HttpserviceService {
-  constructor(private http: HttpClientModule) {}
+  constructor(private http: HttpClient) {}
 
   set_usuario(nombre, usuario, contrasena){
     this.http.post('http://localhost:8081/registro', {nombre: nombre, usuario: usuario, contrasena: contrasena }).subscribe();

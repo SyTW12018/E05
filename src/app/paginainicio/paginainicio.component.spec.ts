@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaginainicioComponent } from './paginainicio.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('PaginainicioComponent', () => {
   let component: PaginainicioComponent;
@@ -8,7 +9,8 @@ describe('PaginainicioComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PaginainicioComponent ]
+      declarations: [ PaginainicioComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));

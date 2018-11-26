@@ -9,12 +9,19 @@ import { User } from '../user';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor(private dataService: DataserviceService) { }
-
   usuario:User;
 
+  constructor(private dataService: DataserviceService) { 
+    this.usuario = new User(); 
+  }
+
   ngOnInit() {
-    this.usuario = this.dataService.usuario
+    this.set_usuario(this.dataService.usuario);
+  }
+
+  set_usuario(usuario){
+    this.usuario = usuario;
+    this.dataService.login(usuario);
   }
 
 }
