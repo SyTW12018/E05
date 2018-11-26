@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('project');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('Diario de clase como título', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to project!');
+    expect(compiled.querySelector('title').textContent).toContain('Diario de clase');
   });
 });
