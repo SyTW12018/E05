@@ -4,6 +4,7 @@ import { FormInicioSesionComponent } from './form-inicio-sesion.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DebugElement } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('FormInicioSesionComponent', () => {
   let component: FormInicioSesionComponent;
@@ -14,7 +15,7 @@ describe('FormInicioSesionComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ FormInicioSesionComponent ],
-      imports: [ HttpClientTestingModule, RouterTestingModule ]
+      imports: [ HttpClientTestingModule, RouterTestingModule, ReactiveFormsModule ]
     })
     .compileComponents().then(() => {
       fixture = TestBed.createComponent(FormInicioSesionComponent);
@@ -33,6 +34,19 @@ describe('FormInicioSesionComponent', () => {
     expect(component.text).toEqual('Inicio de Sesion');
   }));
 
+  it('form should be created', async(() => {
+    expect(component.contactForm).toBeTruthy();
+  }));
+
+
+  it('form should be invalid', async(() => {
+    component.contactForm.controls['usuario2'].setValue('');
+    component.contactForm.controls['contrasena2'].setValue('12');
+
+    expect(component.contactForm.valid).toBeFalsy();
+  }));
+
+
   it('form should be valid', async(() => {
     component.contactForm.controls['usuario2'].setValue('Juan');
     component.contactForm.controls['contrasena2'].setValue('dsfdg');
@@ -46,7 +60,7 @@ describe('FormInicioSesionComponent', () => {
     spyOn(component,'inicio_sesion');
     el = fixture.debugElement.query(By.css('button')).nativeElement;
     el.click();
-    expect(component.inicio_sesion).toHaveBeenCalledTimes(1);
-  }));
-*/
+    expect(component.inicio_sesion).toHaveBeenCalledTimes(0);
+  }));*/
+
 });

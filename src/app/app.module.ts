@@ -14,6 +14,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MzButtonModule, MzInputModule } from 'ngx-materialize';
 import { PaginainicioComponent } from './paginainicio/paginainicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {Routes, RouterModule} from '@angular/router'
 
 const appRoutes: Routes = [
@@ -43,6 +45,8 @@ import { NavPerfilComponent } from './nav-perfil/nav-perfil.component';
     NoopAnimationsModule,
     MzButtonModule,
     MzInputModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [HttpserviceService],
