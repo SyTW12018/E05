@@ -9,7 +9,7 @@ import {Router} from '@angular/router'
   styleUrls: ['./form-inicio-sesion.component.css']
 })
 export class FormInicioSesionComponent implements OnInit {
-
+text = 'Inicio de Sesion';
 constructor(private httpService: HttpserviceService, private router: Router, private dataService: DataserviceService ) { }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ constructor(private httpService: HttpserviceService, private router: Router, pri
         this.dataService.login(usuario);
         this.router.navigate(['perfil']);
       }.bind(this));
-      return false;
+      return true;
   }
 
 
