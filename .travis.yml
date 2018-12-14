@@ -1,0 +1,30 @@
+dist: trusty
+sudo: false
+language: node_js
+
+node_js:
+- '10'
+
+addons:
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+
+cache:
+  directories:
+  - "./node_modules"
+
+notifications:
+  slack:
+    secure: EaYFtY8WgyYFG0oPsmSYeECUvntr38r34C3/shAjP6OilVe1GpVXyB6d4Yi8v3tk3UwtmZU3QMiotv9TIbAFFLroZ8JzNqitSuP9j0A9bCQjqwPLKa9UylTTO+gC9gBwA0EgFjYzU4KziSwFQDwrPyT+MWjX/errwSkufnvAtKQkJWuqJyRr8YJc9DwIbqjpUNfRfHK24pWb11VV/gGPYmx93ulDGhUJgy7tcsLn889BYDRfXlq14BQBDo1ZC3TPNWmiG6DYd9J2t3WNF7ZSKs2skh0dw3i+VasKG1fFZIEm6Ob8a6i8vB09eEV4KAAOVVjgnfvPnR5J9PKGr420I1RryObXiMQUYtseX9I5IX0aJPfF2vHg8v39nrDEyAz0oyzBBo27WctPuL1/oDatYG4RIotXSa/Xc1+1ewru/dWDnD4KZAOYq0qdHtrw9olkAXbKiE0+uKQcYHE+iHKSlEkE9KJCTetgf9cvGTOW+D0QhZXP/qViUn4hfdW9LzHtSmGRnXbWyK1dAUYWS+rnEpFENBjMZzP3W72YsocAIU+llx5Y/wmVSRqov5axDYna7rPzva5LYY4VoIHwW39JKBxqeNgimqPw3fzdO++BY2hw2w9NQRrbbKzUXtY/w0euunfcguEloGzo9221WsRh+NsN7zCxva72Bcf13ZJ46Yk=
+  on_success: always
+
+before_script:
+  - sudo chown root /opt/google/chrome/chrome-sandbox
+  - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+
+script:
+  - ng test --watch=false --browsers ChromeHeadless
+  - npm run build

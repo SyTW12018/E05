@@ -1,14 +1,16 @@
  <div class="grid-example col l4 m6 s6 sesion">
     <fieldset>
         <legend><strong> Registro </strong></legend>
-        <form>
-            <label for="Nombre">Nombre: </label>
-            <input type="text" placeholder="Nombre" name="nombre1" id="nombre1" #nombre1 ><br><br>
-            <label for="Nombre">Usuario: </label>
-            <input type="text" placeholder="Usuario" name="usuario" id="usuario" #usuario1><br><br>
-            <label for="Nombre">Contrase&ntilde;a: </label>
-            <input type="password" name="contrasena1" id="contrasena1" placeholder="Contrase&ntilde;a" #contrasena1><br><br>
-            <button type=submit (click)="enviar(nombre1, usuario1, contrasena1)" name=registrarse>Registrarse</button>
+        <form id="contact-form1" [formGroup]="contactForm">
+            <div class="form-group">
+                <label for="nombre1">Nombre: </label>
+                <input type="text" class="form-control" formControlName="nombre1" placeholder="Nombre" name="nombre1" id="nombre1" #nombre1 ><br><br>
+                <label for="usuario1">Usuario: </label>
+                <input type="text" class="form-control" formControlName="usuario1" placeholder="Usuario" name="usuario" id="usuario" #usuario1><br><br>
+                <label for="contrasena1">Contrase&ntilde;a: </label>
+                <input type="password" class="form-control" formControlName="contrasena1"name="contrasena1" id="contrasena1" placeholder="Contrase&ntilde;a" #contrasena1><br><br>
+                <button type=submit (click)="enviar(nombre1, usuario1, contrasena1)" name=registrarse>Registrarse</button>
+            </div>    
         </form>
     </fieldset>
 </div>
