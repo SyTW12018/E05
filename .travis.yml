@@ -13,6 +13,9 @@ addons:
       organization: "sytw12018" # the key of the org you chose at step #3
       token:
         secure: "cmDMqplK2rT6XE6HLGRjDLgoqz8hfB0HWSm8ap5dV54r3B0rPjYtSGT8DYhKvXGB/mpXf6aWwmGCOLN903WX8Tjbcq+Xn0zYcyWBZWjq7d74jcaUVgI7Jdd5GBk5td9ENPM8Ihnj6enOo0XTZgjHq46Mm54XOuSCDS03pcrDUXVwIXxQ2rwXh4AQ0TWDS8mkhvN77yYYPCRcsujjBgBfnvejYkDw1+kjh8kPjgfvqa19wYwP1RSl5RbJzGdhDQlu0OW1F6S8dUufXUiqca8LqXZ978ZgSrNSASrnu1uX7F2tp0bbdMx8YvKUuiqWwJEFTaxEbOr6aW4pZay8IDEqcZx9wRyUqS9Trh4Io7/S7C5laTJzLU/zByQlDobzUSC3vQ1p7cdyvpdQk7dSeXmWGyWALCh9UINs0Oe2+kFeozk9ezaCeOKrOn5tUuew8niZYEoAuJWKavKX/bCGCF3Mg/p4rL6ZtitekWBeVn/AOWxrdt+LRJOi0YNeqIoqbSTPUTyZ6hSH1EXiFTAwJDa7zQlmFnt+9+CnGj5v1Ln97hvu4E0qP3ab9yp8GCIBjkPe0DS9sedIdPhWv6A6pCKbgTaS/KU9syfI0pNn3BRSCM/u32ZwTsR5cFEYiDsivle38rrMtUGTW1K5hOSJ5ulfnfZH2Hu0ZFd0qOLqo3iI+nc=" # encrypted value of your token
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 cache:
   directories:
   - "./node_modules"
@@ -28,6 +31,7 @@ before_script:
 - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
 script:
 - ng test --watch=false --browsers ChromeHeadless
+- npm install -g sonarqube-scanner
 - sonar-scanner
 - npm run build
 
