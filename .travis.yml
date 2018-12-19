@@ -33,7 +33,7 @@ before_script:
 script:
 - ng test --watch=false --browsers ChromeHeadless
 - npm install -g sonarqube-scanner
-- sonar-scanner
+- sonar-scanner -Dsonar.projectKey=myproject -Dsonar.web.port=9090
 - npm run build
 
 
