@@ -29,6 +29,7 @@ env:
 before_script:
 - sudo chown root /opt/google/chrome/chrome-sandbox
 - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io
 script:
 - ng test --watch=false --browsers ChromeHeadless
 - npm install -g sonarqube-scanner
