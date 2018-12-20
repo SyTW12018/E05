@@ -1,30 +1,33 @@
 dist: trusty
 sudo: false
 language: node_js
-
 node_js:
 - '10'
-
 addons:
   apt:
     sources:
     - google-chrome
     packages:
     - google-chrome-stable
-
+    sonarcloud:
+      organization: sytw12018
+      token:
+      - secure: YwXGAAg/5LN1GiDLyfb8NVmrxjEfQK2XvNZM8vDjQTiEr+CN5n3ftXsqsRiQMyxVEyJCgRb7IhpXfs8HmgNafFyMULqAO5Xy7m6flupRCKgAo1+RZP1BQ+p2q0vpVVw4Nk7Us52P48pnpfY0Bvl69waiYPkC9ia4cGMnq9SkBZtTil+XKF7JO7VMyZtUp/0cYsS5WbIsNPK4dVSp+LZgSld3peLpueIgMqIG7Md/aDo7f0cnutecKAF2qIMLmo4tQyzhE6uS6Ede5LUPmGl/aInIfQjd5D7sCDsOUVf4bTqgSuy6AS5Ehn+RuAtcjIGNEWpHcF4qJmQejxVrDzbvh6IdoWUZKhHBiIpy85efe3B3jW4rTb9a/trq4LzTvQ8+WDyQxDf+1vIGyy/amBdWzK78d8j8lvae6MEsqPKh3BCbGHrKNR+OTpDswGjougeVUgq7o+DAfodMO/7P62rxz7bFNlgrcGnzMIDf22VhoQxD+r2oaDmLCOPYhKNGeJIP1JZNRX5NlyIpQIzapj6YOk1Ff7MIBJlcxVyafRPzMxfZsN8SG13UxSvaTalBikbgPiB9HKLit5wAPYarQBg/vMbew9x1s6Jsnt8QKAv8aNnTXfsPRKqv6Y0sfzsE7LAQaXix8Dw7/gPeH8pr4s9KxFtArD74f1W7tw1vY2/8hkQ=
 cache:
   directories:
   - "./node_modules"
-
 notifications:
   slack:
     secure: EaYFtY8WgyYFG0oPsmSYeECUvntr38r34C3/shAjP6OilVe1GpVXyB6d4Yi8v3tk3UwtmZU3QMiotv9TIbAFFLroZ8JzNqitSuP9j0A9bCQjqwPLKa9UylTTO+gC9gBwA0EgFjYzU4KziSwFQDwrPyT+MWjX/errwSkufnvAtKQkJWuqJyRr8YJc9DwIbqjpUNfRfHK24pWb11VV/gGPYmx93ulDGhUJgy7tcsLn889BYDRfXlq14BQBDo1ZC3TPNWmiG6DYd9J2t3WNF7ZSKs2skh0dw3i+VasKG1fFZIEm6Ob8a6i8vB09eEV4KAAOVVjgnfvPnR5J9PKGr420I1RryObXiMQUYtseX9I5IX0aJPfF2vHg8v39nrDEyAz0oyzBBo27WctPuL1/oDatYG4RIotXSa/Xc1+1ewru/dWDnD4KZAOYq0qdHtrw9olkAXbKiE0+uKQcYHE+iHKSlEkE9KJCTetgf9cvGTOW+D0QhZXP/qViUn4hfdW9LzHtSmGRnXbWyK1dAUYWS+rnEpFENBjMZzP3W72YsocAIU+llx5Y/wmVSRqov5axDYna7rPzva5LYY4VoIHwW39JKBxqeNgimqPw3fzdO++BY2hw2w9NQRrbbKzUXtY/w0euunfcguEloGzo9221WsRh+NsN7zCxva72Bcf13ZJ46Yk=
   on_success: always
-
 before_script:
-  - sudo chown root /opt/google/chrome/chrome-sandbox
-  - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
-
+- sudo chown root /opt/google/chrome/chrome-sandbox
+- sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+- npm install -g sonarqube-scanner
 script:
-  - ng test --watch=false --browsers ChromeHeadless
-  - npm run build
+- ng test --watch=false --browsers ChromeHeadless
+- npm run build
+- sonar-scanner -X
+
+    
+
