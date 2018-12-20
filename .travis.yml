@@ -34,7 +34,7 @@ before_script:
 script:
 - ng test --watch=false --browsers ChromeHeadless
 - npm run build
-- sonar-scanner
+- sonar-scanner -X 
 
 
   
