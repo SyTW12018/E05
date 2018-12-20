@@ -29,12 +29,12 @@ env:
 before_script:
 - sudo chown root /opt/google/chrome/chrome-sandbox
 - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+- npm install -g sonarqube-scanner
 
 script:
 - ng test --watch=false --browsers ChromeHeadless
-- npm install -g sonarqube-scanner
-- sonar-scanner -Dsonar.projectKey=myproject -Dsonar.web.port=9090
 - npm run build
+- sonar-scanner
 
 
   
