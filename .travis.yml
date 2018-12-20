@@ -1,30 +1,34 @@
 dist: trusty
 sudo: false
 language: node_js
-
 node_js:
 - '10'
-
 addons:
   apt:
     sources:
     - google-chrome
     packages:
     - google-chrome-stable
-
+  sonarcloud:
+    organization: "sytw12018" # the key of the org you chose at step #3
+    token:
+      secure: b71BHaodVsCKGeLdseoN3oDxehaHGdSVpQlo/cObD2z2bxukPGVMVlxCWFDsL7exzOSemr3SidRRirMJ3r3HtcWn0eZKejeS7oLWYBYqEbt1hhoQfyxNWcngwN2zM+Zo5jfQtC6HWSidafx8itmqpKRB8JyrS7RKLhQF5g96xYgwAuV7Z4La/bCMDRJ5PrUAU4EiBOHiE7OQlP0HmWILahfYptpIcRsfMtPvlHZtSmRo7nqUCrNOgWOzdA8QJEiW3PWbqrSVJzypNOetLvphzRn8hHkgsZ19qS5trgPWi0uhS+4wlAYdZrIgfyvVCWfMR7w8UZtsOcKUWKjQU2IEdiCagQT8uEaZ+hdKDXVUGluAa8y2PxiB0Kkt9geUu96sCewgkJxwW1khyp6zSD3odERXTsXp3PpVGlvouq9lqzoOLOal7MzDrFW+1bRY+j1Cykvcmw9xyOuCD50YHGiI6Dgpl/AqbZxFoqJun1PgxEmqxcGuMG8w3+DLOkPhzycMenMx4+giUqQ1+cAiJFtkWdnTM0ut9WzTHUlERseLH1zYvVb+c+jgRvJMzAjWj5Vl+HiAttJgYEjeaZN9DHxAVd2IaAQqIKTb32pOEhkLBhku7NzBjGEs43+2C7vyJQC35fxAvGY16670TTrt+g7uxL80wyy5EzOamgm/Fgj8hd0= # encrypted value of your token
 cache:
   directories:
   - "./node_modules"
-
 notifications:
   slack:
     secure: EaYFtY8WgyYFG0oPsmSYeECUvntr38r34C3/shAjP6OilVe1GpVXyB6d4Yi8v3tk3UwtmZU3QMiotv9TIbAFFLroZ8JzNqitSuP9j0A9bCQjqwPLKa9UylTTO+gC9gBwA0EgFjYzU4KziSwFQDwrPyT+MWjX/errwSkufnvAtKQkJWuqJyRr8YJc9DwIbqjpUNfRfHK24pWb11VV/gGPYmx93ulDGhUJgy7tcsLn889BYDRfXlq14BQBDo1ZC3TPNWmiG6DYd9J2t3WNF7ZSKs2skh0dw3i+VasKG1fFZIEm6Ob8a6i8vB09eEV4KAAOVVjgnfvPnR5J9PKGr420I1RryObXiMQUYtseX9I5IX0aJPfF2vHg8v39nrDEyAz0oyzBBo27WctPuL1/oDatYG4RIotXSa/Xc1+1ewru/dWDnD4KZAOYq0qdHtrw9olkAXbKiE0+uKQcYHE+iHKSlEkE9KJCTetgf9cvGTOW+D0QhZXP/qViUn4hfdW9LzHtSmGRnXbWyK1dAUYWS+rnEpFENBjMZzP3W72YsocAIU+llx5Y/wmVSRqov5axDYna7rPzva5LYY4VoIHwW39JKBxqeNgimqPw3fzdO++BY2hw2w9NQRrbbKzUXtY/w0euunfcguEloGzo9221WsRh+NsN7zCxva72Bcf13ZJ46Yk=
   on_success: always
-
 before_script:
-  - sudo chown root /opt/google/chrome/chrome-sandbox
-  - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
-
+- sudo chown root /opt/google/chrome/chrome-sandbox
+- sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+- npm install sonar-scanner
 script:
-  - ng test --watch=false --browsers ChromeHeadless
-  - npm run build
+- ng test --watch=false --browsers ChromeHeadless
+- npm run build
+- sonar-scanner
+env:
+  global:
+  - secure: PUWDEYj0dGm+SIewP1D7zOKMIHsxCVXcXZvEjzb9pJ65TOfC/uwg3lXu+M+KD9cFzdSAAWWO+uUO1KAeaMzFBwyHCd0zC2gVvQ+lzCWTro/8azgU85c3yjxfGL2dSxRqu3+74gldE5pDqAzkLRrg60OSgO1Fem43diKUK7QuhNuzR+AER2ZI7be1vGYJ4OKFwnigPUQxt12Xdug9crHTXAcA+vxfvolVAZ/SWtxnbdcwUEnnwokwpsFqE0bXtQ3X+eVQBm1Nw6dcMc/N9rpI7Naka61kFDPe1JHOPVV0662ayNlFEaeM3LJdJXY5x+WoVtm89pV0yrOOeJ2K9jCiIIfABmw/aTLXOEfBcgRF6bDiBOc8KFj+4FqMLDs39CG6qTqJuHSguiqnWuOwo9FOQD7vx4Wjyk1ue74HjhDAN67JbgV9DERIR8hWCJIdJlyu3CxtvUPzCXCNubDO+qM47u8zrnHDAfuwa0d/k8zIXcgoodOYQdFt/bOzS8uqZzyTZEbGaQlt32vznXnfG2GbiJBic7kT9F6D0SXZ/XFw08SqRcD8z6JFASusEPk4QBpeCPz29OwCqUfyTAOjvezc0EYzj5i9oyCdPbIt7YB36nPk/vyr5uIe9y0ZBcqoymgGHMuqLTnvK805pth+KcWEiPjdP6Vd3mQUIgJQOMyln0I=
+  - secure: b71BHaodVsCKGeLdseoN3oDxehaHGdSVpQlo/cObD2z2bxukPGVMVlxCWFDsL7exzOSemr3SidRRirMJ3r3HtcWn0eZKejeS7oLWYBYqEbt1hhoQfyxNWcngwN2zM+Zo5jfQtC6HWSidafx8itmqpKRB8JyrS7RKLhQF5g96xYgwAuV7Z4La/bCMDRJ5PrUAU4EiBOHiE7OQlP0HmWILahfYptpIcRsfMtPvlHZtSmRo7nqUCrNOgWOzdA8QJEiW3PWbqrSVJzypNOetLvphzRn8hHkgsZ19qS5trgPWi0uhS+4wlAYdZrIgfyvVCWfMR7w8UZtsOcKUWKjQU2IEdiCagQT8uEaZ+hdKDXVUGluAa8y2PxiB0Kkt9geUu96sCewgkJxwW1khyp6zSD3odERXTsXp3PpVGlvouq9lqzoOLOal7MzDrFW+1bRY+j1Cykvcmw9xyOuCD50YHGiI6Dgpl/AqbZxFoqJun1PgxEmqxcGuMG8w3+DLOkPhzycMenMx4+giUqQ1+cAiJFtkWdnTM0ut9WzTHUlERseLH1zYvVb+c+jgRvJMzAjWj5Vl+HiAttJgYEjeaZN9DHxAVd2IaAQqIKTb32pOEhkLBhku7NzBjGEs43+2C7vyJQC35fxAvGY16670TTrt+g7uxL80wyy5EzOamgm/Fgj8hd0=
