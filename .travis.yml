@@ -23,7 +23,7 @@ notifications:
 before_script:
 - sudo chown root /opt/google/chrome/chrome-sandbox
 - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
-#- npm install -g sonarqube-scanner
+- npm install -g sonarqube-scanner
 script:
 - ng test --watch=false --browsers ChromeHeadless
 - npm run build
