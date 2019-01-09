@@ -22,10 +22,11 @@ const appRoutes: Routes = [
   {path: '', redirectTo:'/inicio', pathMatch: 'full'},
   {path: 'inicio', component: PaginainicioComponent},
   {path: 'perfil', component: PerfilComponent},
-  {path: 'perfil/crear_asignatura', component: PerfilComponent}
+  {path: 'perfil/crear-asignatura', component: CrearAsignaturaComponent}
 ];
 
 import { NavPerfilComponent } from './nav-perfil/nav-perfil.component';
+import { CrearAsignaturaComponent } from './crear-asignatura/crear-asignatura.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NavPerfilComponent } from './nav-perfil/nav-perfil.component';
     FooterComponent,
     PaginainicioComponent,
     PerfilComponent,
-    NavPerfilComponent
+    NavPerfilComponent,
+    CrearAsignaturaComponent
   ],
   imports: [
     BrowserModule,
