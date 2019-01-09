@@ -21,7 +21,8 @@ import {Routes, RouterModule} from '@angular/router'
 const appRoutes: Routes = [
   {path: '', redirectTo:'/inicio', pathMatch: 'full'},
   {path: 'inicio', component: PaginainicioComponent},
-  {path: 'perfil', component: PerfilComponent}
+  {path: 'perfil', component: PerfilComponent},
+  {path: 'perfil/crear_asignatura', component: PerfilComponent}
 ];
 
 import { NavPerfilComponent } from './nav-perfil/nav-perfil.component';

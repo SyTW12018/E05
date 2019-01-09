@@ -1,4 +1,50 @@
-.rellenar{
-  width: 100px;;
+#Cuadrados{
+  width: 800px;
   height: 400px;
 }
+
+
+
+#cuadrado{
+  background-color:#1D99A8;
+  width: 180px;
+  height: 180px;
+  border-radius: 15%;
+  margin: 5px;
+  float: left;
+}
+
+#imagen_mas{
+  width: 120px;
+  height: 120px;
+  padding-left: 3px;
+}
+
+#lupa{
+  width: 160px;
+  height: 160px;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+#ojo{
+  width: 160px;
+  height: 160px;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+#perfil{
+  width: 160px;
+  height: 160px;
+  margin-left: 10px;
+  margin-top:5px;
+}
+
+#crear_asig{
+  width: 180px;
+  height: 180px;
+
+}
+
+
