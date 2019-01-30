@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 import { User } from './user';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,6 @@ export class DataserviceService {
   login(usuariojson){
     this.usuario = new User().deserialize(usuariojson);
     this.grabar_localstorage(usuariojson);
-    console.log(this.usuario.get_nombre_usuario());
   }
 
 obtener_localstorage(){
@@ -26,5 +26,9 @@ obtener_localstorage(){
 grabar_localstorage(usuariojson){
 
   localStorage.setItem( "usuario", JSON.stringify( usuariojson ));
+}
+
+get_usuario(){
+  return this.usuario;
 }
 }

@@ -1,4 +1,5 @@
 import {Deserializable} from "./deserializable.model";
+import { UsuarioComponent } from "./usuario/usuario.component";
 
 export class User implements Deserializable {
         nombre: string;
@@ -18,5 +19,9 @@ export class User implements Deserializable {
 
         get_nombre_usuario(){
                 return (this.nombre + '(' + this.usuario + ')');
+        }
+
+        get_usuario(){
+                return this.usuario;
         }
 }

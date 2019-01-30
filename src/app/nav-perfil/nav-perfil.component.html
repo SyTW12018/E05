@@ -18,12 +18,12 @@
      <nav>
        <div class="nav-wrapper">
          <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-         <a href="index.html" class="brand-logo navi"><i class="material-icons">library_books</i>Diario de clase </a>
+         <a href="index.html" class="brand-logo navi"><i class="material-icons">library_books</i>Diario de clase</a>
          <ul id="nav-mobile" class="right hide-on-med-and-down">
-           <li><a href="sass.html">Crear asignatura</a></li>
-           <li><a href="badges.html">Buscar asignaturas</a></li>
-           <li><a href="collapsible.html">Mis asignaturas</a></li>
-           <li><a href="collapsible.html">USUARIO</a></li>
+           <li><a (click)="nav_crear_asignatura()">Crear asignatura</a></li>
+           <li><a (click)="nav_buscar_asignaturas()">Buscar asignaturas</a></li>
+           <li><a (click)="nav_mis_asignaturas()">Mis asignaturas</a></li>
+           <li><a (click)="nav_usuario()">USUARIO</a></li>
          </ul>
        </div>
      </nav>

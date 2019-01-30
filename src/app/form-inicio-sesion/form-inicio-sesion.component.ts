@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpserviceService } from '../httpservice.service';
 import { DataserviceService } from '../dataservice.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-form-inicio-sesion',
@@ -35,8 +35,6 @@ createForm(): void{
         ])
   })
 }
-  
-  
   
   inicio_sesion(usuario, contrasena){
       this.httpService.login(usuario.value, contrasena.value, function(usuario){

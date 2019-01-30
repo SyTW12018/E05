@@ -1,0 +1,30 @@
+<p>
+  {{ asignatura?.nombre }}<br>
+  {{ asignatura?.autor }}<br>
+  {{ asignatura?.curso }}
+</p>
+
+<h3>Apuntes</h3>
+<ul>
+  <li *ngFor="let apunte of asignatura?.apuntes">
+    {{ apunte?.titulo }}
+  </li>
+  <button (click)='nav_formulario_add("video")'>añadir</button>
+</ul>
+
+<h3>Videos</h3>
+<ul>
+  <li *ngFor="let video of asignatura?.videos">
+    {{ video?.titulo }}
+  </li>
+  <button (click)='nav_formulario_add("video")'>añadir</button>
+</ul>
+
+<h3>Foro</h3>
+<ul>
+  <li *ngFor="let post of asignatura?.videos">
+    {{ post?.titulo }}
+  </li>
+  <button (click)='nav_formulario_add("video")'>añadir</button>
+</ul>
+

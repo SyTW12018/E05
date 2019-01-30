@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpserviceService } from '../httpservice.service';
 
 @Component({
   selector: 'app-crear-asignatura',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearAsignaturaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: HttpserviceService) { }
 
   ngOnInit() {
   }
 
+  crear(nombre, curso, contrasena) {
+    this.httpService.set_asignatura(nombre.value, curso.value, contrasena.value);
+    return false;
+  }
 }
