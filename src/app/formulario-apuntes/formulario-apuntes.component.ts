@@ -11,5 +11,4 @@ export class FormularioApuntesComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -19,7 +19,6 @@ var Schema = mongoose.Schema;
 var apuntesSchema = new Schema({
 	autor: String,
 	titulo: String,
-	peso: Number,
 	fecha: Date,
 	url: String
 });
@@ -34,6 +33,7 @@ var foroSchema = new Schema({
 var videosSchema = new Schema({
 	autor: String,
 	titulo: String,
+	fecha: Date,
 	url: String
 });
 
@@ -45,6 +45,7 @@ var asignaturaSchema = new Schema({
 	videos: [videosSchema],
 	apuntes: [apuntesSchema],
 	autor: String
+	//participantes
 });
 
 var AsignaturaData = mongoose.model('Asignaturas', asignaturaSchema);
