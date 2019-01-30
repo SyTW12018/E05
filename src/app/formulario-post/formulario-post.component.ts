@@ -12,4 +12,7 @@ export class FormularioPostComponent implements OnInit {
   ngOnInit() {
   }
 
+  subir_comentario(titulo_comentario, comentario){
+    console.log(comentario.value);
+  }
 }
