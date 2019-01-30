@@ -1,9 +1,8 @@
 <app-nav-perfil></app-nav-perfil>
 
-<div class="container">
-  <div id="relleno">METER PAJA</div>  
+<div class="container" >
+  <h2>Crear asignatura</h2>
     <fieldset>
-        <legend><strong> Crear asignatura </strong></legend>
         <form>
             <div> 
                 <label for="nombre_asig">Nombre de la asignatura: </label>
@@ -15,9 +14,11 @@
                 <label for="contrasena_asig">Contrase&ntilde;a: </label>
                 <input type="password" name="contrasena_asig" id="contrasena_asig" placeholder="Contrase&ntilde;a" #contrasena1><br><br>
                
-                <button type=submit (click)="crear(nombre_asig, curso_asig, contrasena1)" name=registrarse>Crear</button>
+                <button type=submit (click)="crear(nombre_asig, curso_asig, contrasena1)" name=registrarse class="waves-effect waves-light btn-small">Crear<i class="material-icons right">send</i></button>
             </div>    
         </form>
     </fieldset>
 </div>
 <app-footer></app-footer>
+
+

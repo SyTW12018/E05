@@ -1,9 +1,8 @@
 <app-nav-perfil></app-nav-perfil>
 
 <div class="container">
-  <div id="relleno">METER PAJA</div>  
+  <h2>Sube tus apuntes</h2>
     <fieldset>
-        <legend><strong> Subir apuntes </strong></legend>
         <form>
             <div> 
                 <label for="titulo_apuntes">Título: </label>
@@ -15,8 +14,7 @@
                 <label for="descripcion_apuntes">Url: </label>
                 <textarea name="message" rows="10" cols="30" #descripcion_apuntes></textarea>
 
-             
-                <button type=submit (click)="subir_apuntes(titulo_apuntes, url_apuntes,descripcion_apuntes)" name=subir_apuntes>Crear</button>
+                <button type=submit (click)="subir_apuntes(titulo_apuntes, url_apuntes,descripcion_apuntes)" name=subir_apuntes  class="waves-effect waves-light btn-small">Subir<i class="material-icons right">send</i></button>
             </div>    
         </form>
     </fieldset>

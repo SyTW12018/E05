@@ -1,9 +1,8 @@
 <app-nav-perfil></app-nav-perfil>
 
 <div class="container">
-  <div id="relleno">METER PAJA</div>  
+    <h2>Sube tu comentario</h2>
     <fieldset>
-        <legend><strong> Añadir comentario </strong></legend>
         <form>
             <div> 
                 <label for="titulo_comentario">Título: </label>
@@ -12,7 +11,7 @@
                 <label for="comentario">Comentario: </label>
                 <textarea name="message" rows="10" cols="30" #comentario></textarea>
              
-                <button type=submit (click)="subir_comentario(titulo_comentario, comentario)" name=subir_comentario>Crear</button>
+                <button type=submit (click)="subir_comentario(titulo_comentario, comentario)" name=subir_comentario class="waves-effect waves-light btn-small">Enviar<i class="material-icons right">send</i></button>
             </div>    
         </form>
     </fieldset>
