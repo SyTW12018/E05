@@ -25,6 +25,7 @@ import { AsignaturaComponent } from './asignatura/asignatura.component';
 import { FormularioApuntesComponent } from './formulario-apuntes/formulario-apuntes.component';
 import { FormularioPostComponent } from './formulario-post/formulario-post.component';
 import { FormularioVideoComponent } from './formulario-video/formulario-video.component';
+import { PostTemaComponent } from './post-tema/post-tema.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo:'/inicio', pathMatch: 'full'},
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
   {path: 'asignatura/:id', component: AsignaturaComponent},
   {path: ':asignatura/add/video', component: FormularioVideoComponent},
   {path: ':asignatura/add/post', component: FormularioPostComponent},
-  {path: ':asignatura/add/apuntes', component: FormularioApuntesComponent}
+  {path: ':asignatura/add/apuntes', component: FormularioApuntesComponent},
+  {path: 'post-id', component: PostTemaComponent}
 ];
 
 @NgModule({
@@ -58,7 +60,8 @@ const appRoutes: Routes = [
     AsignaturaComponent,
     FormularioApuntesComponent,
     FormularioPostComponent,
-    FormularioVideoComponent
+    FormularioVideoComponent,
+    PostTemaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,36 @@
+<app-nav-perfil></app-nav-perfil>
+
+<div class="container">
+  <div id="relleno">METER PAJA</div>  
+    <fieldset>
+        <legend><strong> Subir video </strong></legend>
+        <form>
+            <div> 
+                <label for="titulo_video">Título: </label>
+                <input type="text" name="titulo_video" id="titulo_video" #titulo_video >
+            
+                <label for="url_video">Url: </label>
+                <input type="text" name="url_video" id="url_video" #url_apuntes>
+             
+                <label for="descripcion_video">Url: </label>
+                <textarea name="message" rows="10" cols="30" #descripcion_video></textarea>
+
+                <button type=submit (click)="subir_video(titulo_video, url_video,descripcion_video)" name=subir_video>Crear</button>
+            </div>    
+        </form>
+    </fieldset>
+</div>
+<app-footer></app-footer>
+
+
+
+
+<!-- 
+
 <form>
   <input type="text" name="nombre_asig" id="nombre_asig" #nombre_asig >
   <input type="text" name="curso_asig" id="curso_asig" #curso_asig>
   <input type="text" name="contrasena_asig" id="contrasena_asig" #contrasena1> 
   <button type=submit (click)="crear(nombre_asig, curso_asig, contrasena1)" name=registrarse>Crear</button>
 </form>
+-->

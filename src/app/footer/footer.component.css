@@ -1,4 +1,10 @@
 
-#footer{
-background-color: #1D99A8;
-}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1D99A8;
+    color: white;
+ }

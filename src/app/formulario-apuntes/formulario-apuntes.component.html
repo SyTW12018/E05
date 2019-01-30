@@ -11,8 +11,12 @@
             
                 <label for="url_apuntes">Url: </label>
                 <input type="text" name="url_apuntes" id="url_apuntes" #url_apuntes>
+                
+                <label for="descripcion_apuntes">Url: </label>
+                <textarea name="message" rows="10" cols="30" #descripcion_apuntes></textarea>
+
              
-                <button type=submit (click)="subir_apuntes(titulo_apuntes, url_apuntes)" name=subir_apuntes>Crear</button>
+                <button type=submit (click)="subir_apuntes(titulo_apuntes, url_apuntes,descripcion_apuntes)" name=subir_apuntes>Crear</button>
             </div>    
         </form>
     </fieldset>
