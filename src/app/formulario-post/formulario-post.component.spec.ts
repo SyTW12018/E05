@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormularioPostComponent } from './formulario-post.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('FormularioPostComponent', () => {
   let component: FormularioPostComponent;
@@ -8,7 +9,9 @@ describe('FormularioPostComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormularioPostComponent ]
+      declarations: [ FormularioPostComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      
     })
     .compileComponents();
   }));

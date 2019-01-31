@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormularioApuntesComponent } from './formulario-apuntes.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('FormularioApuntesComponent', () => {
   let component: FormularioApuntesComponent;
@@ -8,7 +9,8 @@ describe('FormularioApuntesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormularioApuntesComponent ]
+      declarations: [ FormularioApuntesComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     })
     .compileComponents();
   }));

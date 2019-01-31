@@ -6,11 +6,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { DebugElement } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
-
-
-
 describe('Pruebas FormularioComponent', () => {
   let component: FormularioComponent;
   let fixture: ComponentFixture<FormularioComponent>;

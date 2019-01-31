@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavPerfilComponent } from './nav-perfil.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('NavPerfilComponent', () => {
   let component: NavPerfilComponent;
@@ -8,7 +9,9 @@ describe('NavPerfilComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavPerfilComponent ]
+      declarations: [ NavPerfilComponent ],
+      imports: [ RouterTestingModule ]
+
     })
     .compileComponents();
   }));
