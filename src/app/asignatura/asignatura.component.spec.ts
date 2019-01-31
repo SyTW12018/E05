@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AsignaturaComponent } from './asignatura.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('AsignaturaComponent', () => {
   let component: AsignaturaComponent;
@@ -12,7 +12,8 @@ describe('AsignaturaComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AsignaturaComponent ],
-      imports: [ HttpClientTestingModule, RouterTestingModule ]
+      imports: [ HttpClientTestingModule, RouterTestingModule ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));
