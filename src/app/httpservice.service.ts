@@ -47,7 +47,7 @@ export class HttpserviceService {
   }
 
   login(usuario,contrasena, callback){
-    this.http.post('http://localhost:8081/inicio_sesion', {usuario: usuario, contrasena: contrasena }).subscribe(data => {
+    this.http.post('/inicio_sesion', {usuario: usuario, contrasena: contrasena }).subscribe(data => {
       callback(data);
     });
   }
