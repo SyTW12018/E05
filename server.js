@@ -165,9 +165,7 @@ app.post('/add/post', function(req, res){
 	});
 });
 
-const server = http.createServer(app);
-
-server.listen(port,() => console.log('Running...' + port));
+server.listen(process.env.PORT || 8081);
 
 
 
