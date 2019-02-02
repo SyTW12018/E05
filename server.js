@@ -70,6 +70,14 @@ app.use(cors());
 app.use(express.static(__dirname + '/dist/project'));
 app.use(bodyParser());
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
 app.get('/*', (req,res) => res.sendFile(path.join(__dirname)));
 
 app.post('/registro',function(req, res) {
