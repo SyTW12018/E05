@@ -10,7 +10,6 @@ export class PaginainicioComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(process.env.PORT);
   }
 
 }
