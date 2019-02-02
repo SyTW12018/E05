@@ -70,7 +70,7 @@ app.use(cors());
 app.use(express.static(__dirname + '/dist/project'));
 app.use(bodyParser());
 console.log(__dirname);
-app.get('/*', (req,res) => res.sendFile(path.join(__dirname + '/src/index.html')));
+app.get('*', (req,res) => res.sendFile(path.join(__dirname + '/src/index.html')));
 
 app.post('/registro',function(req, res) {
 	//comprobar si ya existe el usuario
