@@ -67,7 +67,7 @@ const port = 8081;
 
 app.use(cors());
 
-app.use(express.static(__dirname + '/dist/project'));
+app.use(express.static(__dirname + '/dist/'));
 app.use(bodyParser());
 
 app.get('/*', (req,res) => res.sendFile(path.join(__dirname)));
