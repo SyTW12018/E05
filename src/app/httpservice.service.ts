@@ -52,4 +52,18 @@ export class HttpserviceService {
     });
   }
 
+  set_video(asignatura_id, titulo_video, url_video, descripcion_video){
+    var user = this.data.get_usuario();
+    this.http.post('http://localhost:8081/add/video', { autor: user.get_usuario(), titulo: titulo_video, url: url_video, descripcion: descripcion_video, _id: asignatura_id }, { responseType: 'text' }).subscribe();
+  }
+
+  set_apuntes(asignatura_id, titulo_apuntes, url_apuntes, descripcion_apuntes){
+    var user = this.data.get_usuario();
+    this.http.post('http://localhost:8081/add/apuntes', { autor: user.get_usuario(), titulo: titulo_apuntes, url: url_apuntes, descripcion: descripcion_apuntes, _id: asignatura_id }, { responseType: 'text' }).subscribe();
+  }
+
+  set_comentario(asignatura_id, titulo_comentario, comentario){
+    var user = this.data.get_usuario();
+    this.http.post('http://localhost:8081/add/post', { autor: user.get_usuario(), titulo: titulo_comentario, comentario: comentario, _id: asignatura_id }, { responseType: 'text' }).subscribe();
+  }
 }

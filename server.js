@@ -20,7 +20,8 @@ var apuntesSchema = new Schema({
 	autor: String,
 	titulo: String,
 	fecha: Date,
-	url: String
+	url: String,
+	descripcion: String
 });
 
 var foroSchema = new Schema({
@@ -28,13 +29,15 @@ var foroSchema = new Schema({
 	titulo: String,
 	comentario: String,
 	fecha: Date
+	//respuestas
 });
 
 var videosSchema = new Schema({
 	autor: String,
 	titulo: String,
 	fecha: Date,
-	url: String
+	url: String,
+	descripcion: String
 });
 
 var asignaturaSchema = new Schema({
@@ -109,7 +112,9 @@ app.post('/crear_asignatura', function(req, res){
 app.post('/mis_asignaturas', function(req, res){
 	UserData.findOne({ "usuario":req.body.usuario }).exec(function (err, results) {
 		//Comprobar que el usuario existe
-		res.json(results["asignaturas"]);
+		AsignaturaData.find({ "_id": { $in: results["asignaturas"] }}).select({ "nombre": 1,"curso": 1, "autor": 1}).exec(function (err, results) {
+			res.json(results);
+		});
 	});
 });
 
@@ -122,6 +127,42 @@ app.post('/asignatura/:id', function(req, res){
 
 app.post('/buqueda', function(req, res){
 	
+});
+
+app.post('/add/video', function(req, res){
+	AsignaturaData.findOne({ "_id":req.body._id }).exec(function (err, results){
+		results["videos"].push({ autor: req.body.autor, titulo: req.body.titulo, url: req.body.url, fecha: new Date(), descripcion: req.body.descripcion});
+		results.save(function (err, updatedResults) {
+			if (err) res.status(500).send({ error: 'Something failed!' });
+			else{
+				res.sendStatus(200);
+			}
+		});
+	});
+});
+
+app.post('/add/apuntes', function(req, res){
+	AsignaturaData.findOne({ "_id":req.body._id }).exec(function (err, results){
+		results["apuntes"].push({ autor: req.body.autor, titulo: req.body.titulo, url: req.body.url, fecha: new Date(), descripcion: req.body.descripcion});
+		results.save(function (err, updatedResults) {
+			if (err) res.status(500).send({ error: 'Something failed!' });
+			else{
+				res.sendStatus(200);
+			}
+		});
+	});
+});
+
+app.post('/add/post', function(req, res){
+	AsignaturaData.findOne({ "_id":req.body._id }).exec(function (err, results){
+		results["foro"].push({ autor: req.body.autor, titulo: req.body.titulo, comentario: req.body.comentario, fecha: new Date()});
+		results.save(function (err, updatedResults) {
+			if (err) res.status(500).send({ error: 'Something failed!' });
+			else{
+				res.sendStatus(200);
+			}
+		});
+	});
 });
 
 const server = http.createServer(app);

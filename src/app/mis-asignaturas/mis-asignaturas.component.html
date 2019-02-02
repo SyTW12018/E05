@@ -1,29 +1,16 @@
 <app-nav-perfil></app-nav-perfil>
 
-<div class="container">  
-  <h2>Tus asignaturas</h2>
-
-  <fieldset>
-      <legend><strong> Mátematicas </strong></legend>      
-          <li>   Curso: 3</li>
-          <li>   Creador: 3</li>   
-  </fieldset>
-  <br>
-  <fieldset>
-      <legend><strong> lengnua </strong></legend>      
-          <li>   Curso: 3</li>
-          <li>   Creador: 3</li>   
-  </fieldset>
-
-
-  <!--
-  <ul>
-    <li *ngFor="let item of asignaturas">
-      codigo: <button (click)="nav_asignatura(item)">{{ item }}</button>
-    </li>
-  </ul>
--->
+<div class="container"> 
+  <h2>Tus asignaturas</h2> 
+    <div *ngFor="let item of asignaturas">
+      <fieldset>
+        <legend><strong>{{ item["nombre"] }}</strong></legend> 
+        <li>   Curso: {{ item["curso"] }}</li> 
+        <li>   Autor: {{ item["autor"] }}</li> 
+        <li>   ID: <button (click)='nav_asignatura(item["_id"])'>{{ item["_id"] }}</button></li>
+      </fieldset>
+      <br>
+    </div>
 </div>
-
-<br>
-<app-footer></app-footer>
+  
+<!--<app-footer></app-footer>-->

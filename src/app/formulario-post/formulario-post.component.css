@@ -4,3 +4,8 @@
     background-color: #1D99A8;
     height: 30px;
 }
+
+textarea {
+    min-width: 50px;
+    min-height: 130px; 
+}

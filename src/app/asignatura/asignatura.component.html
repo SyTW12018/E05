@@ -2,83 +2,49 @@
 
 
 <div class="container">
-<h2>Matemáticas</h2>
+<h2>{{ asignatura?.nombre }}</h2>
 
 <fieldset>
     <legend><strong><h4>Apuntes</h4> </strong></legend>
-    <ul>
-        <li><strong>Titulo:</strong> Como sumar</li>
-        <li><strong>URL:</strong><a href=""> Como sumar</a></li>
-        <li><strong>Creador:</strong> Como sumar</li>
-        <li><strong>Fecha:</strong> Como sumar</li>
-        <li><strong>Descripción:</strong> Como sumar</li>         
-      </ul>
-      <ul>
-        <li><strong>Titulo:</strong> Como sumar</li>
-        <li><strong>URL:</strong><a href=""> Como sumar</a></li>
-        <li><strong>Creador:</strong> Como sumar</li>
-        <li><strong>Fecha:</strong> Como sumar</li>
-        <li><strong>Descripción:</strong> Como sumar</li>         
-        </ul>
-      <button (click)='nav_formulario_add("apuntes")' class="waves-effect waves-light btn-small">Añadir<i class="material-icons right">send</i></button>
-      
-   
+    <ul *ngFor="let apunte of asignatura?.apuntes">
+      <li><strong>Titulo:</strong> {{ apunte?.titulo }}</li>
+      <li><strong>URL:</strong><a href="{{ apunte?.url }}"> {{ apunte?.url }}</a></li>
+      <li><strong>Creador:</strong> {{ apunte?.autor }}</li>
+      <li><strong>Fecha:</strong> {{ apunte?.fecha }}</li>
+      <li><strong>Descripción:</strong> {{ apunte?.descripcion }}</li>         
+    </ul>
+    <button (click)='nav_formulario_add("apuntes")' class="waves-effect waves-light btn-small">Añadir<i class="material-icons right">send</i></button>
 </fieldset>
 
 <fieldset>
-    <legend><strong><h4>Videos</h4> </strong></legend>
-    <ul>
-        <li><strong>Titulo:</strong> Como sumar</li>
-        <li><strong>URL:</strong><a href=""> Como sumar</a></li>
-        <li><strong>Creador:</strong> Como sumar</li>
-        <li><strong>Fecha:</strong> Como sumar</li>
-        <li><strong>Descripción:</strong> Como sumar</li>         
-      </ul>
-      <ul>
-        <li><strong>Titulo:</strong> Como sumar</li>
-        <li><strong>URL:</strong><a href=""> Como sumar</a></li>
-        <li><strong>Creador:</strong> Como sumar</li>
-        <li><strong>Fecha:</strong> Como sumar</li>
-        <li><strong>Descripción:</strong> Como sumar</li>         
-        </ul>
-        <button (click)='nav_formulario_add("video")' class="waves-effect waves-light btn-small">Añadir<i class="material-icons right">send</i></button>
-      </fieldset>
+  <legend><strong><h4>Videos</h4> </strong></legend>
+    <ul *ngFor="let video of asignatura?.videos">
+      <li><strong>Titulo:</strong> {{ video?.titulo }}</li>
+      <li><strong>URL:</strong><a href="{{ video?.url }}"> {{ video?.url }}</a></li>
+      <li><strong>Creador:</strong> {{ video?.autor }}</li>
+      <li><strong>Fecha:</strong> {{ video?.fecha }}</li>
+      <li><strong>Descripción:</strong> {{ video?.descripcion }}</li>         
+    </ul>
+    <button (click)='nav_formulario_add("video")' class="waves-effect waves-light btn-small">Añadir<i class="material-icons right">send</i></button>
+</fieldset>
 
 <fieldset>
-    <legend><strong><h4>Foro</h4> </strong></legend>
-    <ul>
-        <li><strong>Tema: </strong><a href="">cgfbgbb</a></li>
-        <li><strong>Creador:</strong> Como sumar</li>
-        <li><strong>Fecha:</strong> Como sumar</li>
-        <li><strong>Número de mensajes:</strong> Como sumar</li>         
-      </ul>
-      <ul>
-        <li><strong>Tema: </strong><a href="">cgfbgbb</a></li>
-        <li><strong>Creador:</strong> Como sumar</li>
-        <li><strong>Fecha:</strong> Como sumar</li>
-        <li><strong>Número de mensajes:</strong> Como sumar</li>         
-        </ul>
-        <button (click)='nav_formulario_add("video")' class="waves-effect waves-light btn-small">Añadir<i class="material-icons right">send</i></button>
-      </fieldset>
+  <legend><strong><h4>Foro</h4> </strong></legend>
+    <ul *ngFor="let post of asignatura?.foro">
+      <li><strong>Tema: </strong><a href="/post/{{ post?._id }}"> {{ post?.titulo }}</a></li>
+      <li><strong>Creador:</strong> {{ post?.autor }}</li>
+      <li><strong>Fecha:</strong> {{ post?.fecha }}</li>
+      <li><strong>Número de mensajes:</strong> Como sumar</li>         
+    </ul>
+    <button (click)='nav_formulario_add("post")' class="waves-effect waves-light btn-small">Añadir<i class="material-icons right">send</i></button>
+</fieldset>
 
 
 
 </div>
 
 <!-- 
-  <p>
-  {{ asignatura?.nombre }}<br>
-  {{ asignatura?.autor }}<br>
-  {{ asignatura?.curso }}
-</p>
 
-<h3>Apuntes</h3>
-<ul>
-  <li *ngFor="let apunte of asignatura?.apuntes">
-    {{ apunte?.titulo }}
-  </li>
-  <button (click)='nav_formulario_add("apuntes")'>añadir</button>
-</ul>
 
 <h3>Videos</h3>
 <ul>

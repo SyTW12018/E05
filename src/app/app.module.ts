@@ -36,9 +36,9 @@ const appRoutes: Routes = [
   {path: 'buscar-asignaturas', component: BuscarAsignaturaComponent},
   {path: 'perfil/usuario', component: UsuarioComponent},
   {path: 'asignatura/:id', component: AsignaturaComponent},
-  {path: ':asignatura/add/video', component: FormularioVideoComponent},
-  {path: ':asignatura/add/post', component: FormularioPostComponent},
-  {path: ':asignatura/add/apuntes', component: FormularioApuntesComponent},
+  {path: ':id/add/video', component: FormularioVideoComponent},
+  {path: ':id/add/post', component: FormularioPostComponent},
+  {path: ':id/add/apuntes', component: FormularioApuntesComponent},
   {path: 'post-id', component: PostTemaComponent}
 ];
 
