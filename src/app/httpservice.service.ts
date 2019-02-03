@@ -18,7 +18,7 @@ export class HttpserviceService {
 
   set_asignatura(nombre, curso, contrasena, callback){
     var user = this.data.get_usuario();
-    this.http.post('/crear_asignatura', {nombre: nombre, curso: curso, contrasena: contrasena, usuario: user.get_usuario()}).subscribe(function(){
+    this.http.post('/crear_asignatura', {nombre: nombre, curso: curso, contrasena: contrasena, usuario: user.get_usuario()}, { responseType: 'text' }).subscribe(function(){
       callback();
     });
   }
