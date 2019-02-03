@@ -79,7 +79,7 @@ export class HttpserviceService {
   }
 
   get_post(id, callback){
-    this.http.get('/post/' + id).subscribe(data => {
+    this.http.get('/getpost/' + id).subscribe(data => {
       callback(data);
     });
   }

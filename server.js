@@ -172,7 +172,7 @@ app.get('/buscar',function(req, res){
 	});
 });
 
-app.get('/post/:id', function(req, res){
+app.get('/getpost/:id', function(req, res){
 	AsignaturaData.findOne({ "foro": { $elemMatch: { "_id": req.params.id}}}, { 'foro.$': 1 }).exec(function (err, results){
 		if (err) {
 			return console.log("error: " + err);
