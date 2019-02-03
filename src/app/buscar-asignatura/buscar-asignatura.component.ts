@@ -20,4 +20,8 @@ export class BuscarAsignaturaComponent implements OnInit {
       this.resultados = resultados;
     }.bind(this));
   }
+
+  matricularse_asignatura(contrasena_asignatura){
+    console.log(contrasena_asignatura);
+  }
 }

@@ -31,10 +31,9 @@
 <fieldset>
   <legend><strong><h4>Foro</h4> </strong></legend>
     <ul *ngFor="let post of asignatura?.foro">
-      <li><strong>Tema: </strong><a href="/post/{{ post?._id }}"> {{ post?.titulo }}</a></li>
+      <li><strong>Tema: </strong><a href="https://diario-de-clase.herokuapp.com/post/{{ post?._id }}"> {{ post?.titulo }}</a></li>
       <li><strong>Creador:</strong> {{ post?.autor }}</li>
-      <li><strong>Fecha:</strong> {{ post?.fecha }}</li>
-      <li><strong>Número de mensajes:</strong> Como sumar</li>         
+      <li><strong>Fecha:</strong> {{ post?.fecha }}</li>      
     </ul>
     <button (click)='nav_formulario_add("post")' class="waves-effect waves-light btn-small">Añadir<i class="material-icons right">send</i></button>
 </fieldset>

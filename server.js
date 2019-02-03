@@ -56,6 +56,8 @@ var asignaturaSchema = new Schema({
 	autor: String
 });
 
+asignaturaSchema.index({nombre: 'text', curso: 'text', autor: 'text'});
+
 var AsignaturaData = mongoose.model('Asignaturas', asignaturaSchema);
 
 var userDataSchema = new Schema({
@@ -128,10 +130,6 @@ app.post('/asignatura/:id', function(req, res){
 	});
 });
 
-app.post('/buqueda', function(req, res){
-	
-});
-
 app.post('/add/video', function(req, res){
 	AsignaturaData.findOne({ "_id":req.body._id }).exec(function (err, results){
 		results["videos"].push({ autor: req.body.autor, titulo: req.body.titulo, url: req.body.url, fecha: new Date(), descripcion: req.body.descripcion});
@@ -170,7 +168,6 @@ app.post('/add/post', function(req, res){
 
 app.get('/buscar',function(req, res){
 	AsignaturaData.find({$text:{$search: req.query.busqueda, $caseSensitive: false, $diacriticSensitive: false }}).select({ "nombre": 1,"curso": 1, "autor": 1}).exec(function (err, results) {
-		console.log(results);
 		res.json(results);
 	});
 });
