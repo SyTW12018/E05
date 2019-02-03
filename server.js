@@ -68,7 +68,7 @@ var userDataSchema = new Schema({
 var UserData = mongoose.model('UserData', userDataSchema);
 
 const app = express();
-const port =  8081;
+const port =  process.env.PORT || 8081;
 
 app.use(cors());
 
@@ -197,7 +197,7 @@ app.post('/post/:id/responder', function(req, res){
 	});
 });
 
-app.get('*', (req,res) => res.sendFile(path.join(__dirname + '/dist/project/index.html')));
+app.get('/*', (req,res) => res.sendFile(path.join(__dirname + '/dist/project/index.html')));
 
 app.listen(port);
 
