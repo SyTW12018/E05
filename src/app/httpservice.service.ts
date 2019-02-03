@@ -70,26 +70,26 @@ export class HttpserviceService {
 
   set_comentario(asignatura_id, titulo_comentario, comentario, callback){
     var user = this.data.get_usuario();
-    this.http.post('http://localhost:8081/add/post', { autor: user.get_usuario(), titulo: titulo_comentario, comentario: comentario, _id: asignatura_id }, { responseType: 'text' }).subscribe(function(){
+    this.http.post('/add/post', { autor: user.get_usuario(), titulo: titulo_comentario, comentario: comentario, _id: asignatura_id }, { responseType: 'text' }).subscribe(function(){
       callback();
     });
   }
 
   buscar(asignatura, callback){
-    this.http.get('http://localhost:8081/buscar', { params: { busqueda: asignatura } }).subscribe(data => {
+    this.http.get('/buscar', { params: { busqueda: asignatura } }).subscribe(data => {
       callback(data);
     });
   }
 
   get_post(id, callback){
-    this.http.get('http://localhost:8081/post/' + id).subscribe(data => {
+    this.http.get('/post/' + id).subscribe(data => {
       callback(data);
     });
   }
 
   set_respuesta(id_post, comentario, callback){
     var user = this.data.get_usuario();
-    this.http.post('http://localhost:8081/post/' + id_post + '/responder', { autor: user.get_usuario() ,comentario: comentario }, { responseType: 'text' }).subscribe(function(){
+    this.http.post('/post/' + id_post + '/responder', { autor: user.get_usuario() ,comentario: comentario }, { responseType: 'text' }).subscribe(function(){
       callback();
     });
   }
