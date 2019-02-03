@@ -19,7 +19,7 @@
                     <form action="">
                       <tr> 
                         <td><input type="contrasena_asignatura" name="contrasena_asignatura" id="contrasena_asignatura" placeholder="Clave" #contrasena_asignatura ></td>
-                        <td><button type=submit (click)="matricularse_asignatura(contrasena_asignatura)" class="waves-effect waves-light btn-small" name=subir_comentario>Matricularse<i class="material-icons right">send</i></button></td>
+                        <td><button type=submit (click)='matricularse_asignatura(contrasena_asignatura, item["_id"])' class="waves-effect waves-light btn-small" name=subir_comentario>Matricularse<i class="material-icons right">send</i></button></td>
                       </tr>
                     </form>
         </fieldset>

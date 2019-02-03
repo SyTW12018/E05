@@ -82,7 +82,7 @@ app.post('/registro',function(req, res) {
 	var usuario = new UserData({nombre: req.body.nombre, usuario: req.body.usuario, contrasena: req.body.contrasena, asignaturas: []});
 	usuario.save(function (err) {
 	if (err) return handleError(err);
-		console.log('guardado');
+		res.sendStatus(200);
 	});
 });
 
@@ -192,6 +192,26 @@ app.post('/post/:id/responder', function(req, res){
 				res.sendStatus(200);
 			}
 		});
+	});
+});
+
+app.post('/matricular/:id', function(req, res){
+	AsignaturaData.findOne({ "_id":req.params.id }).exec(function (err, results){
+		if(results["contrasena"]==req.body.password){
+			UserData.findOne({ "usuario":req.body.usuario }).exec(function (err, results) {
+				results["asignaturas"].push(req.params.id);
+				results.save(function (err, updatedResults) {
+					if (err) res.status(500).send({ error: 'Something failed!' });
+					else{
+						res.sendStatus(200);
+					}
+				});
+
+			});
+		}
+		else{
+			res.status(400).send({ error: 'Something failed!' });
+		}
 	});
 });
 
