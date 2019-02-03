@@ -197,7 +197,7 @@ app.post('/post/:id/responder', function(req, res){
 	});
 });
 
-app.get('/*', (req,res) => res.sendFile(path.join(__dirname + '/dist/project/index.html')));
+app.get('*', (req,res) => res.sendFile(path.join(__dirname + '/dist/project/index.html')));
 
 app.listen(port);
 
