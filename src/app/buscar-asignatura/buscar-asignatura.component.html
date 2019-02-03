@@ -1,4 +1,4 @@
-<!--<app-nav-perfil></app-nav-perfil>
+<app-nav-perfil></app-nav-perfil>
 
 <div class="container">
   <h2>Buscar asignaturas</h2>
@@ -6,46 +6,29 @@
     <form class="flexsearch--form" action="#" method="post">
       <div class="flexsearch--input-wrapper">
           <tr> 
-              <td style="width: 100%"><input class="flexsearch--input" type="search" placeholder="Buscar" ></td>
-              <td><button type=submit (click)="matricularse_asignatura(contrasena_asignatura)" class="waves-effect waves-light btn-small" name=subir_comentario>Buscar<i class="material-icons right">search</i></button></td>
+              <td style="width: 100%"><input class="flexsearch--input" type="search" placeholder="Buscar" #asignatura ></td>
+              <td><button type=submit (click)="buscar(asignatura)" class="waves-effect waves-light btn-small" name=subir_comentario>Buscar<i class="material-icons right">search</i></button></td>
       </div>
     </form>
-<br>
-    <fieldset>
-        <legend><strong> Mátematicas </strong></legend>      
-            <li>   Curso: 3</li>
-            <li>   Creador: 3</li>             
-            <form action="">
-              <tr> 
-                <td><input type="contrasena_asignatura" name="contrasena_asignatura" id="contrasena_asignatura" placeholder="Clave" #contrasena_asignatura ></td>
-                <td><button type=submit (click)="matricularse_asignatura(contrasena_asignatura)" class="waves-effect waves-light btn-small" name=subir_comentario>Matricularse<i class="material-icons right">send</i></button></td>
-              </tr>
-
-            </form>
-
- 
-
-    </fieldset>
     <br>
-    <fieldset>
-        <legend><strong> matematica 2 </strong></legend>      
-            <li>   Curso: 3</li>
-            <li>   Creador: 3</li>   
-            <tr> 
-                <td><input type="contrasena_asignatura" name="contrasena_asignatura" id="contrasena_asignatura" placeholder="Clave" #contrasena_asignatura ></td>
-                <td><button type=submit (click)="matricularse_asignatura(contrasena_asignatura)" class="waves-effect waves-light btn-small" name=subir_comentario>Matricularse<i class="material-icons right">send</i></button></td>
-              </tr>
-    </fieldset>
-    
-  
-
-
-
-
+    <div *ngFor="let item of resultados">
+        <fieldset>
+                <legend><strong> {{ item["nombre"] }} </strong></legend>      
+                    <li>   Curso: {{ item["curso"] }}</li>
+                    <li>   Creador: {{ item["autor"] }}</li>             
+                    <form action="">
+                      <tr> 
+                        <td><input type="contrasena_asignatura" name="contrasena_asignatura" id="contrasena_asignatura" placeholder="Clave" #contrasena_asignatura ></td>
+                        <td><button type=submit (click)="matricularse_asignatura(contrasena_asignatura)" class="waves-effect waves-light btn-small" name=subir_comentario>Matricularse<i class="material-icons right">send</i></button></td>
+                      </tr>
+                    </form>
+        </fieldset>
+        <br>
+    </div>
 </div>
 
 <br>
-<app-footer></app-footer>-->
+<app-footer></app-footer>
 
 
 

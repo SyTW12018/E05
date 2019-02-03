@@ -20,6 +20,8 @@ export class FormularioPostComponent implements OnInit {
   }
 
   subir_comentario(titulo_comentario, comentario){
-    this.httpService.set_comentario(this.asignatura._id, titulo_comentario.value, comentario.value);
+    this.httpService.set_comentario(this.asignatura._id, titulo_comentario.value, comentario.value, function(){
+      this.router.navigate(['asignatura', this.route.snapshot.paramMap.get('id')]);
+    }.bind(this));
   }
 }

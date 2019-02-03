@@ -24,12 +24,18 @@ var apuntesSchema = new Schema({
 	descripcion: String
 });
 
+var respuestaSchema = new  Schema({
+	autor: String,
+	comentario: String,
+	fecha: Date,
+});
+
 var foroSchema = new Schema({
 	autor: String,
 	titulo: String,
 	comentario: String,
-	fecha: Date
-	//respuestas
+	fecha: Date,
+	respuestas: [respuestaSchema]
 });
 
 var videosSchema = new Schema({
@@ -48,7 +54,6 @@ var asignaturaSchema = new Schema({
 	videos: [videosSchema],
 	apuntes: [apuntesSchema],
 	autor: String
-	//participantes
 });
 
 var AsignaturaData = mongoose.model('Asignaturas', asignaturaSchema);
@@ -63,15 +68,12 @@ var userDataSchema = new Schema({
 var UserData = mongoose.model('UserData', userDataSchema);
 
 const app = express();
-const port = 8081;
+const port =  8081;
 
 app.use(cors());
 
 app.use(express.static(__dirname + '/dist/project'));
 app.use(bodyParser());
-console.log(__dirname);
-
-app.get('/*', (req,res) => res.sendFile(path.join(__dirname + '/dist/project/index.html')));
 
 app.post('/registro',function(req, res) {
 	//comprobar si ya existe el usuario
@@ -166,8 +168,38 @@ app.post('/add/post', function(req, res){
 	});
 });
 
-app.listen(process.env.PORT || 8081);
+app.get('/buscar',function(req, res){
+	AsignaturaData.find({$text:{$search: req.query.busqueda, $caseSensitive: false, $diacriticSensitive: false }}).select({ "nombre": 1,"curso": 1, "autor": 1}).exec(function (err, results) {
+		res.json(results);
+	});
+});
 
+app.get('/post/:id', function(req, res){
+	AsignaturaData.findOne({ "foro": { $elemMatch: { "_id": req.params.id}}}, { 'foro.$': 1 }).exec(function (err, results){
+		if (err) {
+			return console.log("error: " + err);
+		}
+		else {
+			res.json(results.foro[0]);
+		}
+	});
+});
+
+app.post('/post/:id/responder', function(req, res){
+	AsignaturaData.findOne({ "foro._id": req.params.id },{'foro.respuestas.$': 1}, (err, results) => {
+		results.foro[0].respuestas.push({ autor: req.body.autor, comentario: req.body.comentario, fecha:new Date() });
+		results.save(function (err, updatedResults) {
+			if (err) res.status(500).send({ error: 'Something failed!' });
+			else{
+				res.sendStatus(200);
+			}
+		});
+	});
+});
+
+app.get('/*', (req,res) => res.sendFile(path.join(__dirname + '/dist/project/index.html')));
+
+app.listen(port);
 
 
 

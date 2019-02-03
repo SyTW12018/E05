@@ -39,7 +39,7 @@ const appRoutes: Routes = [
   {path: ':id/add/video', component: FormularioVideoComponent},
   {path: ':id/add/post', component: FormularioPostComponent},
   {path: ':id/add/apuntes', component: FormularioApuntesComponent},
-  {path: 'post-id', component: PostTemaComponent}
+  {path: 'post/:id', component: PostTemaComponent}
 ];
 
 @NgModule({

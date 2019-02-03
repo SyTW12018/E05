@@ -1,43 +1,37 @@
 <app-nav-perfil></app-nav-perfil>
 
 <div class="container">
-  <h2>Como se hace una suma </h2>
+  <h2>{{ post?.titulo }}</h2>
     
   <fieldset>
         <ul>
-            <li><strong>Primera respuesta</strong></li>
-            <li>de AUTOR - FECHA</li>
-            <li>Lorem ipsum dolor sit amet consectetur adipiscing elit habitasse dignissim odio, ac ante suspendisse lacus dapibus natoque elementum duis vulputate id tellus, aliquet integer euismod suscipit erat interdum pretium semper tempus. Aptent taciti porttitor vestibulum conubia cursus hac velit nisl vehicula magna commodo vel curae sociis, in class vulputate fusce tincidunt imperdiet proin libero ultricies blandit montes venenatis. Condimentum nec porttitor augue justo semper varius mi dignissim sed, natoque nulla praesent mattis vulputate taciti aliquam arcu.</li>         
+            <li><strong>Comentario</strong></li>
+            <li>de {{post?.autor}} - {{post?.fecha}}</li>
+            <li>{{post?.comentario}}</li>         
         </ul>
         <br>
 
         <h4>Respuestas</h4>
-        <ul>
-            <li><strong>Primera respuesta</strong></li>
-            <li>de AUTOR - FECHA</li>
-            <li>Lorem ipsum dolor sit amet consectetur adipiscing elit habitasse dignissim odio, ac ante suspendisse lacus dapibus natoque elementum duis vulputate id tellus, aliquet integer euismod suscipit erat interdum pretium semper tempus. Aptent taciti porttitor vestibulum conubia cursus hac velit nisl vehicula magna commodo vel curae sociis, in class vulputate fusce tincidunt imperdiet proin libero ultricies blandit montes venenatis. Condimentum nec porttitor augue justo semper varius mi dignissim sed, natoque nulla praesent mattis vulputate taciti aliquam arcu.</li>         
-        </ul> <br>
-        <ul>
-            <li><strong>Primera respuesta</strong></li>
-            <li>de AUTOR - FECHA</li>
-            <li>Lorem ipsum dolor sit amet consectetur adipiscing elit habitasse dignissim odio, ac ante suspendisse lacus dapibus natoque elementum duis vulputate id tellus, aliquet integer euismod suscipit erat interdum pretium semper tempus. Aptent taciti porttitor vestibulum conubia cursus hac velit nisl vehicula magna commodo vel curae sociis, in class vulputate fusce tincidunt imperdiet proin libero ultricies blandit montes venenatis. Condimentum nec porttitor augue justo semper varius mi dignissim sed, natoque nulla praesent mattis vulputate taciti aliquam arcu.</li>         
-        </ul> <br>
-        <ul>
-            <li><strong>Primera respuesta</strong></li>
-            <li>de AUTOR - FECHA</li>
-            <li>Lorem ipsum dolor sit amet consectetur adipiscing elit habitasse dignissim odio, ac ante suspendisse lacus dapibus natoque elementum duis vulputate id tellus, aliquet integer euismod suscipit erat interdum pretium semper tempus. Aptent taciti porttitor vestibulum conubia cursus hac velit nisl vehicula magna commodo vel curae sociis, in class vulputate fusce tincidunt imperdiet proin libero ultricies blandit montes venenatis. Condimentum nec porttitor augue justo semper varius mi dignissim sed, natoque nulla praesent mattis vulputate taciti aliquam arcu.</li>         
-        </ul> <br>
-        <ul>
-            <li><strong>Primera respuesta</strong></li>
-            <li>de AUTOR - FECHA</li>
-            <li>Lorem ipsum dolor sit amet consectetur adipiscing elit habitasse dignissim odio, ac ante suspendisse lacus dapibus natoque elementum duis vulputate id tellus, aliquet integer euismod suscipit erat interdum pretium semper tempus. Aptent taciti porttitor vestibulum conubia cursus hac velit nisl vehicula magna commodo vel curae sociis, in class vulputate fusce tincidunt imperdiet proin libero ultricies blandit montes venenatis. Condimentum nec porttitor augue justo semper varius mi dignissim sed, natoque nulla praesent mattis vulputate taciti aliquam arcu.</li>         
-        </ul> <br>
-
-
+        <div *ngFor="let respuesta of post?.respuestas">
+            <ul>
+                <li><strong>Primera respuesta</strong></li>
+                <li>de {{respuesta.autor}} - {{respuesta.fecha}}</li>
+                <li>{{respuesta.comentario}}</li>         
+            </ul> <br>
+        </div>
     </fieldset>
 
-
-
+    <br>
+    <fieldset>
+        <form>
+            <div> 
+                <label for="comentario">Comentario: </label>
+                <textarea name="message" rows="10" cols="30" #comentario></textarea>
+             
+                <button type=submit (click)="responder(comentario)" name=subir_respuesta class="waves-effect waves-light btn-small">Responder<i class="material-icons right">send</i></button>
+            </div>    
+        </form>
+    </fieldset>
 </div>
 <br>
 <app-footer></app-footer>

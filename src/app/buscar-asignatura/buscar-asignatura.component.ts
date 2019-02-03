@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpserviceService } from '../httpservice.service';
 
 @Component({
   selector: 'app-buscar-asignatura',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscarAsignaturaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: HttpserviceService) { }
 
   ngOnInit() {
   }
 
+  resultados;
+
+  buscar(asignatura){
+    this.httpService.buscar(asignatura.value, function(resultados)  {
+      this.resultados = resultados;
+    }.bind(this));
+  }
 }

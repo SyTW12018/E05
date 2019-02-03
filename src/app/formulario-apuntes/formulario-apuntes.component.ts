@@ -20,6 +20,8 @@ export class FormularioApuntesComponent implements OnInit {
   }
 
   subir_apuntes(titulo_apuntes, url_apuntes,descripcion_apuntes){
-    this.httpService.set_apuntes(this.asignatura._id, titulo_apuntes.value, url_apuntes.value, descripcion_apuntes.value);
+    this.httpService.set_apuntes(this.asignatura._id, titulo_apuntes.value, url_apuntes.value, descripcion_apuntes.value, function(){
+      this.router.navigate(['asignatura', this.route.snapshot.paramMap.get('id')]);
+    }.bind(this));
   }
 }

@@ -12,7 +12,6 @@ export class AsignaturaComponent implements OnInit {
   constructor(private httpService: HttpserviceService, private route: ActivatedRoute, private router: Router) {
     this.httpService.get_asignatura(this.route.snapshot.paramMap.get('id'), function(datosasignatura) {
       this.asignatura = datosasignatura;
-      console.log(this.asignatura)
     }.bind(this));
   }
   

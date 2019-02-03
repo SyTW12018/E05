@@ -20,6 +20,8 @@ export class FormularioVideoComponent implements OnInit {
   }
 
   subir_video(titulo_video, url_video, descripcion_video){
-    this.httpService.set_video(this.asignatura._id, titulo_video.value, url_video.value, descripcion_video.value);
+    this.httpService.set_video(this.asignatura._id, titulo_video.value, url_video.value, descripcion_video.value, function(){
+      this.router.navigate(['asignatura', this.route.snapshot.paramMap.get('id')]);
+    }.bind(this));
   }
 }
