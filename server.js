@@ -170,6 +170,7 @@ app.post('/add/post', function(req, res){
 
 app.get('/buscar',function(req, res){
 	AsignaturaData.find({$text:{$search: req.query.busqueda, $caseSensitive: false, $diacriticSensitive: false }}).select({ "nombre": 1,"curso": 1, "autor": 1}).exec(function (err, results) {
+		console.log(results);
 		res.json(results);
 	});
 });

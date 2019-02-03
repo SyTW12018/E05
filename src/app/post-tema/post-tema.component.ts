@@ -30,5 +30,4 @@ export class PostTemaComponent implements OnInit {
       }.bind(this));
     }.bind(this));
   }
-
 }
