@@ -14,7 +14,8 @@ export class CrearAsignaturaComponent implements OnInit {
   }
 
   crear(nombre, curso, contrasena) {
-    this.httpService.set_asignatura(nombre.value, curso.value, contrasena.value);
-    return false;
+    this.httpService.set_asignatura(nombre.value, curso.value, contrasena.value, function(){
+      this.router.navigate(['asignatura', this.route.snapshot.paramMap.get('id')]);
+    }.bind(this));
   }
 }

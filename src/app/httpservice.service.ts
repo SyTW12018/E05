@@ -16,9 +16,11 @@ export class HttpserviceService {
     this.http.post('/registro', {nombre: nombre, usuario: usuario, contrasena: contrasena }).subscribe();
   }
 
-  set_asignatura(nombre, curso, contrasena){
+  set_asignatura(nombre, curso, contrasena, callback){
     var user = this.data.get_usuario();
-    this.http.post('/crear_asignatura', {nombre: nombre, curso: curso, contrasena: contrasena, usuario: user.get_usuario()}).subscribe();
+    this.http.post('/crear_asignatura', {nombre: nombre, curso: curso, contrasena: contrasena, usuario: user.get_usuario()}).subscribe(function(){
+      callback();
+    });
   }
 
   get_usuarios(callback) {
