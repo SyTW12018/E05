@@ -17,7 +17,7 @@ export class FormularioComponent implements OnInit {
     usuario1: '',
     contrasena1: ''
   }; 
-  constructor(private httpService: HttpserviceService ) {
+  constructor(private httpService: HttpserviceService, private router: Router ) {
     this.createForm();
    }
 
@@ -42,8 +42,8 @@ export class FormularioComponent implements OnInit {
   }
 
   enviar(nombre, usuario, contrasena){
-    this.httpService.set_usuario(nombre.value, usuario.value, contrasena.value);
-    return false;
+    this.httpService.set_usuario(nombre.value, usuario.value, contrasena.value, function(){
+      this.contactForm.reset();
+    }.bind(this));
   }
-
 }
